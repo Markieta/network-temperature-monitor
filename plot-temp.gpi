@@ -1,0 +1,13 @@
+#!/usr/bin/env gnuplot
+
+# Plot network temperature activity over a period of time
+# Author: Christopher Markieta
+
+set term png
+set output "temperatures.png"
+set title "Cabinet Temperatures"
+set xtics nomirror rotate by -45
+set key noenhanced
+set style data linespoints
+plot 'temperatures.dat' using 2:xtic(1) title columnheader(2), \
+for [i=3:4] '' using i title columnheader(i)
