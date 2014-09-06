@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Retrieve temperatures across network
+# Author: Christopher Markieta
+
+sensors | awk 'NR==3 {print substr($2, 2, length($2) - 3)}'
