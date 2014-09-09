@@ -3,11 +3,11 @@
 # Plot network temperature activity over a period of time
 # Author: Christopher Markieta
 
-set term png
+set term png size 1680, 900
 set output "temperatures.png"
 set title "Cabinet Temperatures"
 set xtics nomirror rotate by -45
-set key noenhanced
+set key noenhanced left
 set style data linespoints
 set datafile separator "|"
 plot '< sqlite3 -header temp.sqlite3 "SELECT * FROM TEMP;"' using 2:xtic(1) title columnheader(2), \
