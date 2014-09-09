@@ -9,5 +9,6 @@ set title "Cabinet Temperatures"
 set xtics nomirror rotate by -45
 set key noenhanced
 set style data linespoints
-plot 'temperatures.dat' using 2:xtic(1) title columnheader(2), \
-for [i=3:4] '' using i title columnheader(i)
+set datafile separator "|"
+plot '< sqlite3 -header temp.sqlite3 "SELECT * FROM TEMP;"' using 2:xtic(1) title columnheader(2), \
+for [i=3:22] '' using i title columnheader(i)
